@@ -44,9 +44,3 @@ $ python app.py
 ```
 
 7. Navigate to http://18.223.0.242:8085/storage
-
-## Contribution
-
-Please feel free to raise issues using this [template](./.github/ISSUE_TEMPLATE.md) and I'll get back to you.
-
-You can also fork the repository, make changes and submit a Pull Request using this [template](./.github/PULL_REQUEST_TEMPLATE.md).
