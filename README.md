@@ -1,10 +1,3 @@
-[![HitCount](http://hits.dwyl.io/ro6ley/flask-drive.svg)](http://hits.dwyl.io/ro6ley/flask-drive)
-
-# FlaskDrive 
-
-This repository contains the code for this [blogpost](https://stackabuse.com/file-management-with-aws-s3-python-and-flask/) on [StackAbuse](https://stackabuse.com/).
-
-## Getting Started
 
 ### Prerequisites
 
@@ -20,12 +13,12 @@ Kindly ensure you have the following installed on your machine:
 
 1. Clone the repository
 ```
-$ git clone https://github.com/ro6ley/flask-drive.git
+$ git clone https://github.com/Harsha-Bansal/Harsha_Hartford_Assignment1.git
 ```
 
 2. Check into the cloned repository
 ```
-$ cd flask-drive
+$ cd Harsha_Hartford_Assignment1
 ```
 
 3. If you are using Pipenv, setup the virtual environment and start it as follows:
@@ -50,7 +43,7 @@ $ aws configure
 $ python app.py
 ```
 
-7. Navigate to http://localhost:5000/storage
+7. Navigate to http://18.223.0.242:8085/storage
 
 ## Contribution
 
