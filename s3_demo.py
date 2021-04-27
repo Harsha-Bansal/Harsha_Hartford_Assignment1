@@ -1,39 +1,39 @@
 import boto3
 
 
-def upload_file(file_name, bucket):
-    """
-    Function to upload a file to an S3 bucket
-    """
-    object_name = file_name
-    s3_client = boto3.client('s3')
-    response = s3_client.upload_file(file_name, bucket, object_name)
-
-    return response
-
-
-def download_file(file_name, bucket):
-    """
-    Function to download a given file from an S3 bucket
-    """
-    s3 = boto3.resource('s3')
-    output = f"downloads/{file_name}"
-    s3.Bucket(bucket).download_file(file_name, output)
-
-    return output
-
-
 def list_files(bucket):
     """
     Function to list files in a given S3 bucket
     """
     s3 = boto3.client('s3')
     contents = []
-    try:
-        for item in s3.list_objects(Bucket=bucket)['Contents']:
-            print(item)
-            contents.append(item)
-    except Exception as e:
-        pass
 
+    folder_list = list_folder(bucket, s3)
+    for folder in folder_list:
+         print(folder)
+         contents.append(folder)
+    print(contents)
     return contents
+
+def list_filename(bucket,filename):
+    s3 = boto3.client('s3')
+    contents = []
+    file_lists = list_file(bucket,s3,filename)
+    print(file_lists)
+    for file_list in file_lists:
+        if(file_list['Size'] != 0):
+	    contents.append(file_list['Key'])
+    return contents
+
+def list_file(bucket,s3,filename):
+    var = []
+    response = s3.list_objects(Bucket=bucket, Prefix=filename+'/')['Contents']
+    for content in response:
+        var.append(content)
+    return var
+
+def list_folder(bucket, s3):
+    response = s3.list_objects_v2(Bucket=bucket, Prefix='', Delimiter='/')
+#    print(response)
+    for content in response.get('CommonPrefixes', '[]'):
+        yield content.get('Prefix')
