@@ -1,6 +1,5 @@
 import boto3
 
-
 def list_files(bucket):
     """
     Function to list files in a given S3 bucket

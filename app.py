@@ -26,6 +26,5 @@ def file(filename):
     contents = list_filename(BUCKET,filename)
     return render_template('storage.html', contents=contents)
     
-
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=8085) #debug=True)
